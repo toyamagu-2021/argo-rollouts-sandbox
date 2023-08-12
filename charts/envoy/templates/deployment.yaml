@@ -36,6 +36,7 @@ spec:
         {{- end }}
         {{- end }}
     spec:
+      serviceAccountName: envoy
       securityContext:
         {{ toYaml .Values.securityContext | nindent 8 }}
       {{- if .Values.priorityClassName }}

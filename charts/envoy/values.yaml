@@ -13,8 +13,8 @@ strategy: |
     maxUnavailable: 1
 
 image:
-  repository: envoyproxy/envoy
-  tag: v1.11.1
+  repository: bitnami/envoy
+  tag: 1.26.1
   pullPolicy: IfNotPresent
 
 command:
