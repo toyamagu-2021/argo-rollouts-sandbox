@@ -1,0 +1,23 @@
+helmDefaults:
+  createNamespace: true
+
+releases:
+- name: envoy
+  namespace: podinfo
+  chart: "../../charts/envoy"
+  values:
+  - ./values-envoy/values.yaml
+  - ./values-envoy/values-services.yaml
+- name: trafficsplit
+  namespace: podinfo
+  chart: "./trafficsplit"
+- name: podinfo-bold-olm
+  namespace: podinfo
+  chart: podinfo/podinfo
+  values:
+  - canary.enabled: false
+- name: podinfo-eerie-octopus
+  namespace: podinfo
+  chart: podinfo/podinfo
+  values:
+  - canary.enabled: false
