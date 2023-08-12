@@ -1,0 +1,13 @@
+apiVersion: split.smi-spec.io/v1alpha3
+kind: TrafficSplit
+metadata:
+  name: podinfo
+spec:
+  # The root service that clients use to connect to the destination application.
+  service: podinfo
+  # Services inside the namespace with their own selectors, endpoints and configuration.
+  backends:
+  - service: podinfo-eerie-octopus
+    weight: 100
+  - service: podinfo-bold-olm
+    weight: 0

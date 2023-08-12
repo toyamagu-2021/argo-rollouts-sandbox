@@ -1,0 +1,11 @@
+services:
+  podinfo:
+    smi:
+      enabled: true
+    backends:
+      podinfo-eerie-octopus:
+        port: 9898
+        weight: 50
+      podinfo-bold-olm:
+        port: 9898
+        weight: 50
