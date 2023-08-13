@@ -1,0 +1,18 @@
+helmDefaults:
+  createNamespace: true
+
+releases:
+- name: argo-rolluts
+  namespace: argo-rollouts
+  chart: argo/argo-rollouts
+  values:
+  - ./values-argo/values.yaml
+- name: envoy
+  namespace: podinfo
+  chart: "../../charts/envoy"
+  values:
+  - ./values-envoy/values.yaml
+  - ./values-envoy/values-services.yaml
+- name: podinfo
+  namespace: podinfo
+  chart: "./rollouts"

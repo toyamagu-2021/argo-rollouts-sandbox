@@ -1,0 +1,33 @@
+services:
+  # With header (Named podinf since correct ordering)
+  podinf:
+    match:
+      prefix: "/"
+      headers:
+        - name: "x-user"
+          exact_match: "test"
+    smi:
+      enabled: false
+    backends:
+      podinfo-stable-header:
+        address: podinfo-stable
+        port: 9898
+        weight: 50
+      podinfo-canary-header:
+        address: podinfo-canary
+        port: 9898
+        weight: 50
+  podinfo:
+    match:
+      prefix: "/"
+    smi:
+      enabled: true
+    backends:
+      podinfo-stable:
+        address: podinfo-stable
+        port: 9898
+        weight: 100
+      podinfo-canary:
+        address: podinfo-canary
+        port: 9898
+        weight: 0
