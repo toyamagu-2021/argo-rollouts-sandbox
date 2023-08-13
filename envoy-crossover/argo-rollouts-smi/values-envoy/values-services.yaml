@@ -1,0 +1,11 @@
+services:
+  podinfo:
+    smi:
+      enabled: true
+    backends:
+      podinfo-stable:
+        port: 9898
+        weight: 100
+      podinfo-canary:
+        port: 9898
+        weight: 0
